@@ -39,7 +39,7 @@ public abstract class MixinInterpolatedNoiseSampler {
             ),
             method = "<init>(Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;DDDDD)V"
     )
-    private static double setXZCoordinateScale(double original) {
+    private double setXZCoordinateScale(double original) {
         return BorderRemover.config == null ? original : BorderRemover.config.xzCoordinateScale;
     }
 
@@ -50,7 +50,7 @@ public abstract class MixinInterpolatedNoiseSampler {
             ),
             method = "<init>(Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;DDDDD)V"
     )
-    private static double setYCoordinateScale(double original) {
+    private double setYCoordinateScale(double original) {
         return BorderRemover.config == null ? original : BorderRemover.config.yCoordinateScale;
     }
 

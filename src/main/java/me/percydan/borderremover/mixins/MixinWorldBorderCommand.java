@@ -41,13 +41,13 @@ public abstract class MixinWorldBorderCommand {
             if (time > 0L) {
                 worldBorder.interpolateSize(d, distance, time);
                 if (distance > d) {
-                    source.sendFeedback(Text.translatable("commands.worldborder.set.grow", String.format(Locale.ROOT, "%.1f", distance), Long.toString(time / 1000L)), true);
+                    source.sendFeedback(() -> Text.translatable("commands.worldborder.set.grow", String.format(Locale.ROOT, "%.1f", distance), Long.toString(time / 1000L)), true);
                 } else {
-                    source.sendFeedback(Text.translatable("commands.worldborder.set.shrink", String.format(Locale.ROOT, "%.1f", distance), Long.toString(time / 1000L)), true);
+                    source.sendFeedback(() -> Text.translatable("commands.worldborder.set.shrink", String.format(Locale.ROOT, "%.1f", distance), Long.toString(time / 1000L)), true);
                 }
             } else {
                 worldBorder.setSize(distance);
-                source.sendFeedback(Text.translatable("commands.worldborder.set.immediate", String.format(Locale.ROOT, "%.1f", distance)), true);
+                source.sendFeedback(() -> Text.translatable("commands.worldborder.set.immediate", String.format(Locale.ROOT, "%.1f", distance)), true);
             }
             return (int) (distance - d);
         }

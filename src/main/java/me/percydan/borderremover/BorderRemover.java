@@ -20,6 +20,7 @@ public class BorderRemover implements ModInitializer {
                 return commandSource.hasPermissionLevel(2);
             }).then(CommandManager.argument("level", FloatArgumentType.floatArg()).executes((commandContext) -> {
                         PlayerEntity player = commandContext.getSource().getPlayer();
+                        assert player != null;
                         player.getAbilities().setFlySpeed(FloatArgumentType.getFloat(commandContext, "level") * 0.05f);
                         player.sendAbilitiesUpdate();
                         return 1;
